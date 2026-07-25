@@ -1,0 +1,17 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/dither
+dither.so
+dither.dylib
+dither.dll
+libdither.a
+dither.a
+dither.lib
+dither-test-*
+*.exe
+*.pdb
+*.o
+*.obj
+*.lst

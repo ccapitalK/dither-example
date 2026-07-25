@@ -1,0 +1,12 @@
+{
+    "description": "A minimal D application.",
+    "dependencies": {
+        "simple-image": "~>0.3.2"
+    },
+    "authors": [
+        "sahan"
+    ],
+    "copyright": "Copyright © 2026, sahan",
+    "license": "proprietary",
+    "name": "dither"
+}
