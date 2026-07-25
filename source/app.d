@@ -18,13 +18,16 @@ static immutable ubyte[8][8] bayerMatrix = [
 ];
 
 float ditherQuantize(float v, size_t stepsPerChannel, size_t x, size_t y) {
-    double scaled = (v * stepsPerChannel);
+    enforce(stepsPerChannel > 1, "Need more than 1 color value");
+    // Note: We subtract 1, because we include the top fencepost from this construction, we want n fenceposts
+    auto divisor = stepsPerChannel - 1;
+    double scaled = (v * divisor);
     auto bayerMatrixCoeff = bayerMatrix[x % 8][y % 8];
     double choice = (bayerMatrixCoeff + .5) / 64;
     if ((scaled % 1) >= choice) {
-        return scaled.ceil / stepsPerChannel;
+        return scaled.ceil / divisor;
     } else {
-        return scaled.floor / stepsPerChannel;
+        return scaled.floor / divisor;
     }
 }
 
